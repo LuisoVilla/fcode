@@ -7,7 +7,7 @@ function App() {
 
   const [startDate, setStartDate] = useState('');
   const [endDate, setEndDate] = useState('');
-  const [result, setResult] = useState('')
+  const [result, setResult] = useState([])
 
   const handleChange1 = (e) => {
     setStartDate(e.target.value)
@@ -34,7 +34,7 @@ function App() {
     <input type='text' value={startDate} onChange={handleChange1}></input>
      <p>End Date</p>
     <input type='text' value={endDate} onChange={handleChange2}></input>
-    <button onClick={searchTransaction}>Fund transactions</button>
+    <button onClick={searchTransaction}>Found transactions</button>
     <button onClick={resetDate}>Reset DAtes</button>
 
 
@@ -42,10 +42,11 @@ function App() {
 
 
     <div className="App">
-    { transactions.map(t => <div key={t.id}>{`${t.start} - ${t.end}`}</div> ) }
+    { transactions.map(t => <div key={t.id}>{`${t.date}`}</div> ) }
     <p></p>
     <p>Filter Dates</p>
-    { result }
+    
+    { result?.lenght !== 0&& result.map(t => <div key={t.id}>{`${t.date}`}</div> )}
     </div>
   </>
   );
