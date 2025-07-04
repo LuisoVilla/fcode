@@ -17,7 +17,7 @@ function App() {
   }
 
   const searchTransaction = () => {
-    const filterDates = transactions.filter(p => Date.parse(startDate) < p.start && p.end < Date.parse(endDate) )
+    const filterDates = transactions.filter(p => Date.parse(startDate) <  Date.parse(p.date) && Date.parse(p.date) < Date.parse(endDate) )
     setResult(filterDates)
   }
 
